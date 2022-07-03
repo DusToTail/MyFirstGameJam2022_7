@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RatBehaviour : CharacterBehaviour, IAttack
+public class WolfBehaviour : CharacterBehaviour, IAttack
 {
     public bool CanAttack { get { return _currentAttackCooldown <= 0; } }
 
@@ -43,46 +43,39 @@ public class RatBehaviour : CharacterBehaviour, IAttack
         _animator.SetFloat("MovementSpeed", _navMeshAgent.speed);
         _animator.SetFloat("AnimationSpeed", speedMultiplier);
     }
-    public void Attack() => StartCoroutine(AttackCoroutine(attackDamage));
-    public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));
-    public override void Heal(float positiveAmount) => StartCoroutine(HealCoroutine(positiveAmount));
-    private IEnumerator AttackCoroutine(float positiveAmount)
+    public void Attack()
     {
-        Debug.Log($"{gameObject.name} attacks for {positiveAmount} damage", this);
+        Debug.Log($"{gameObject.name} attacks for {attackDamage} damage", this);
         // Trigger any animation / sound effect / event
 
         Vector3 center = attackCollider.transform.position + attackCollider.center;
         Collider[] colliders = Physics.OverlapBox(center, attackCollider.size / 2, attackCollider.transform.rotation, LayerMask.GetMask(Utilities.characterLayer));
-        foreach(Collider collider in colliders)
+        foreach (Collider collider in colliders)
         {
             if (collider.CompareTag(Utilities.playerTag))
-                collider.transform.GetComponent<CharacterBehaviour>().TakeDamage(positiveAmount);
+                collider.transform.GetComponent<CharacterBehaviour>().TakeDamage(attackDamage);
         }
         ResetCurrentAttackCooldown();
-        yield return null;
     }
-    private IEnumerator TakeDamageCoroutine(float positiveAmount)
+    public override void TakeDamage(float positiveAmount)
     {
         Debug.Log($"{gameObject.name} takes {positiveAmount} damage", this);
         // Trigger any animation / sound effect / event
         MinusHealth(positiveAmount);
-        yield return null;
     }
-    private IEnumerator HealCoroutine(float positiveAmount)
+    public override void Heal(float positiveAmount)
     {
         Debug.Log($"{gameObject.name} heals {positiveAmount}", this);
         // Trigger any animation / sound effect / event
         PlusHealth(positiveAmount);
-        yield return null;
     }
     private void ReduceCurrentAttackCooldown()
     {
-        if(_currentAttackCooldown < 0) { return; }
+        if (_currentAttackCooldown < 0) { return; }
         _currentAttackCooldown -= Time.deltaTime;
     }
     private void ResetCurrentAttackCooldown()
     {
         _currentAttackCooldown = attackCooldown;
     }
-
 }

@@ -15,6 +15,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
     [SerializeField] protected float _curHealth;
     protected NavMeshAgent _navMeshAgent;
     protected Animator _animator;
+    public abstract void Idle();
     public abstract void Move();
     public abstract void TakeDamage(float positiveAmount);
     public abstract void Heal(float positiveAmount);

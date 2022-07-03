@@ -27,6 +27,10 @@ public class RabbitBehaviour : CharacterBehaviour
         UpdateNavMeshAgent(speedByHealth);
         
     }
+    public override void Idle()
+    {
+        UpdateNavMeshAgent(0);
+    }
     public override void UpdateNavMeshAgent(float movementSpeed)
     {
         base.UpdateNavMeshAgent(movementSpeed);

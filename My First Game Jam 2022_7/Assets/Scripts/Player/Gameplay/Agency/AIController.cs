@@ -8,21 +8,24 @@ public class AIController : MonoBehaviour
     public CharacterBehaviour Target { get { return _detectionFOV.target; } }
     public CharacterBehaviour Victim { get { return _detectionAttack.target; } }
     private CharacterBehaviour _character;
-    private BehaviourTreeRunner _treeRunner;
+    //private BehaviourTreeRunner _treeRunner;
+    private FiniteStateMachine _machine;
     private DetectCharacterInFOVBehaviour _detectionFOV;
     private DetectCharacterInAttackZoneBehaviour _detectionAttack;
 
     private void Awake()
     {
         _character = GetComponent<CharacterBehaviour>();
-        _treeRunner = GetComponent<BehaviourTreeRunner>();
+        //_treeRunner = GetComponent<BehaviourTreeRunner>();
+        _machine = GetComponent<FiniteStateMachine>();
         _detectionFOV = GetComponentInChildren<DetectCharacterInFOVBehaviour>();
         _detectionAttack = GetComponentInChildren<DetectCharacterInAttackZoneBehaviour>();
     }
 
     private void Update()
     {
-        _treeRunner.RunTree();
+        //_treeRunner.RunTree();
+        _machine.Run();
     }
 
 }
