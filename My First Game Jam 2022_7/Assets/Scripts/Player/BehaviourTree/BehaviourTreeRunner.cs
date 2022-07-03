@@ -5,7 +5,7 @@ using UnityEngine;
 public class BehaviourTreeRunner : MonoBehaviour
 {
     public BehaviourTree tree;
-    private BehaviourTree _clone;
+    public BehaviourTree clone;
 
     private void Awake()
     {
@@ -18,20 +18,22 @@ public class BehaviourTreeRunner : MonoBehaviour
 
     public void RunTree()
     {
-        Debug.Log($"Start run tree");
-        _clone.Update();
+        Debug.Log($"Start run tree", this);
+        InitializeClone();
+        clone.Update();
+        DestroyClone();
     }
 
     private void InitializeClone()
     {
-        _clone = tree.Clone();
-        _clone.SetAI(GetComponent<AIController>());
+        clone = tree.Clone();
+        clone.SetAI(GetComponent<AIController>());
     }
 
     private void DestroyClone()
     {
-        Destroy(_clone.rootNode);
-        Destroy(_clone);
+        Destroy(clone.rootNode);
+        Destroy(clone);
     }
 
 }

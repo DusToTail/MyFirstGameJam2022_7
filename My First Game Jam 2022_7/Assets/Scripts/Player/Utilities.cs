@@ -5,6 +5,9 @@ using UnityEngine;
 public static class Utilities
 {
     public static readonly string groundLayer = "Ground";
+    public static readonly string characterLayer = "Character";
+    public static readonly string objectLayer = "Object";
+
     public static readonly string interactionActorLayer = "Interaction Actor";
     public static readonly string interactionObjectLayer = "Interaction Object";
     public static readonly string ignoreCameraLayer = "Ignore Camera";

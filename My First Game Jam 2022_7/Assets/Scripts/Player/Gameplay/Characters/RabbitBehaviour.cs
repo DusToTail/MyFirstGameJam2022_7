@@ -5,11 +5,10 @@ using UnityEngine.AI;
 
 public class RabbitBehaviour : CharacterBehaviour
 {
-    [SerializeField] private bool canMove;
-
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponentInChildren<Animator>();
     }
     private void Start()
     {
@@ -18,7 +17,6 @@ public class RabbitBehaviour : CharacterBehaviour
     }
     private void Update()
     {
-        if (!canMove) { return; }
         Move();
         if (Input.GetKeyUp(KeyCode.A)) { TakeDamage(maxHealth / 10); }
         if(Input.GetKeyUp(KeyCode.D)) { PlusHealth(maxHealth / 10); }
@@ -27,7 +25,15 @@ public class RabbitBehaviour : CharacterBehaviour
     {
         float speedByHealth = maxMovementSpeed * Mathf.Clamp(_curHealth / maxHealth, 0.1f, 1f);
         UpdateNavMeshAgent(speedByHealth);
+        
     }
+    public override void UpdateNavMeshAgent(float movementSpeed)
+    {
+        base.UpdateNavMeshAgent(movementSpeed);
+        _animator.SetFloat("MovementSpeed", _navMeshAgent.speed);
+        _animator.SetFloat("AnimationSpeed", speedMultiplier);
+    }
+    public override void Attack(float positiveAmount) { }
     public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));
     public override void Heal(float positiveAmount) => StartCoroutine(HealCoroutine(positiveAmount));
     private IEnumerator TakeDamageCoroutine(float positiveAmount)

@@ -15,8 +15,10 @@ public class BehaviourTree: ScriptableObject
     {
         if (rootNode.state == Node.State.Running)
         {
+            Debug.Log("Tree: Updating", AI);
             return rootNode.Update();
         }
+        Debug.Log("Tree: Not updating", AI);
         return treeState;
     }
 

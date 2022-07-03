@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IfPlayerIsAvailableNode : CompositeNode
+public class IfPlayerExistsNode : CompositeNode
 {
     public PlayerController controller;
 
@@ -20,13 +20,13 @@ public class IfPlayerIsAvailableNode : CompositeNode
         if (controller == null)
         {
             // There is no player
-            Debug.Log("Node: There is no player");
+            Debug.Log("Node: There is no player", tree.AI);
             return children[0].Update();
         }
         else
         {
             // There is player
-            Debug.Log("Node: There is player");
+            Debug.Log("Node: There is player", tree.AI);
             return children[1].Update();
         }
     }

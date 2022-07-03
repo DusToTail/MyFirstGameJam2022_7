@@ -14,8 +14,8 @@ TagManager:
   - UI
   - Interaction Actor
   - Interaction Object
-  - Near Light
-  - Discovered
+  - Character
+  - Object
   - Undiscovered
   - FOV
   - Ignore Camera

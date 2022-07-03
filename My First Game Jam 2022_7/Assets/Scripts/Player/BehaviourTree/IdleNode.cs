@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitNode : ActionNode
+public class IdleNode : ActionNode
 {
-    public float duration = 1;
-    private float _start;
     protected override void OnStart()
     {
-        _start = Time.time;
     }
 
     protected override void OnStop()
@@ -17,8 +14,9 @@ public class WaitNode : ActionNode
 
     protected override State OnUpdate()
     {
-        if(Time.time - _start > duration)
-            return State.Success;
+        tree.AI.Character.followPosition = tree.AI.Character.transform.position;
+        Debug.Log($"Node: Idling", tree.AI);
+        tree.AI.Character.UpdateNavMeshAgent(0);
         return State.Running;
     }
 }
