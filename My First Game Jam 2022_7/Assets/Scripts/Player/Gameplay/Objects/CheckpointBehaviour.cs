@@ -16,6 +16,7 @@ public class CheckpointBehaviour : InteractionObjectBehaviour
     public override void OnNearby()
     {
         if (isTriggered) { return; }
+        isTriggered = true;
         Debug.Log("Checkpoint reached", this);
     }
 }

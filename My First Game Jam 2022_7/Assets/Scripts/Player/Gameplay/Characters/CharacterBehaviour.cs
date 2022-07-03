@@ -7,7 +7,8 @@ using UnityEngine.AI;
 [RequireComponent (typeof(NavMeshAgent))]
 public abstract class CharacterBehaviour : MonoBehaviour
 {
-    public Vector3 followPosition { get; set; }
+    public Vector3 followPosition;
+    public float speedMultiplier = 1;
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float maxMovementSpeed;
     [SerializeField] protected bool displayGizmos;
@@ -15,17 +16,17 @@ public abstract class CharacterBehaviour : MonoBehaviour
     protected NavMeshAgent _navMeshAgent;
     public abstract void Move();
     public abstract void TakeDamage(float positiveAmount);
+    public abstract void Heal(float positiveAmount);
     public virtual void UpdateNavMeshAgent(float movementSpeed)
     {
-        _navMeshAgent.speed = movementSpeed;
+        _navMeshAgent.speed = movementSpeed * speedMultiplier;
         _navMeshAgent.SetDestination(followPosition);
     }
     public virtual void InitializeNavMeshAgent(bool updatePosition = true, bool updateRotation = true, bool updateUpAxis = true)
     {
         _navMeshAgent.speed = maxMovementSpeed;
-        _navMeshAgent.acceleration = maxMovementSpeed * maxMovementSpeed / 2;
+        _navMeshAgent.acceleration = maxMovementSpeed * maxMovementSpeed / 3;
         _navMeshAgent.angularSpeed = 720f;
-        _navMeshAgent.stoppingDistance = 0.5f;
         _navMeshAgent.updatePosition = updatePosition;
         _navMeshAgent.updateRotation = updateRotation;
         _navMeshAgent.updateUpAxis = updateUpAxis;
@@ -46,9 +47,9 @@ public abstract class CharacterBehaviour : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!displayGizmos) { return; }
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(followPosition, 0.5f);
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(followPosition, 0.1f);
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }
