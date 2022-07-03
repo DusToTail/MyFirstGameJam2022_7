@@ -15,7 +15,7 @@ public class IdleNode : ActionNode
     protected override State OnUpdate()
     {
         tree.AI.Character.followPosition = tree.AI.Character.transform.position;
-        Debug.Log($"Node: Idling", tree.AI);
+        //Debug.Log($"Node: Idling", tree.AI);
         tree.AI.Character.UpdateNavMeshAgent(0);
         return State.Running;
     }

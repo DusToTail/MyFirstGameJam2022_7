@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IfTargetIsInAttackZoneNode : CompositeNode
+public class IfCanAttackNode : CompositeNode
 {
     public CharacterBehaviour target;
     protected override void OnStart()
@@ -16,7 +16,7 @@ public class IfTargetIsInAttackZoneNode : CompositeNode
 
     protected override State OnUpdate()
     {
-        if (target == null)
+        if (target == null || !tree.AI.GetComponent<IAttack>().CanAttack)
         {
             //Debug.Log("Node: Target is not in attack zone", tree.AI);
             return children[0].Update();

@@ -18,12 +18,12 @@ public class IfTargetIsInFOVNode : CompositeNode
     {
         if(target == null)
         {
-            Debug.Log("Node: Target is not detected", tree.AI);
+            //Debug.Log("Node: Target is not detected", tree.AI);
             return children[0].Update();
         }
         else
         {
-            Debug.Log($"Node: Target {target.gameObject.name} is detected", tree.AI);
+            //Debug.Log($"Node: Target {target.gameObject.name} is detected", tree.AI);
             return children[1].Update();
         }
     }

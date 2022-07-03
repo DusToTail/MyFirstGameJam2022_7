@@ -16,7 +16,6 @@ public abstract class CharacterBehaviour : MonoBehaviour
     protected NavMeshAgent _navMeshAgent;
     protected Animator _animator;
     public abstract void Move();
-    public abstract void Attack(float positiveAmount);
     public abstract void TakeDamage(float positiveAmount);
     public abstract void Heal(float positiveAmount);
     public virtual void UpdateNavMeshAgent(float movementSpeed)

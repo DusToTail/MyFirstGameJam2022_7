@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1890989801276879573}
   - component: {fileID: 1890989801276879572}
   - component: {fileID: 1890989801276879574}
+  - component: {fileID: 1626558791}
   m_Layer: 8
   m_Name: Rabbit
   m_TagString: Player
@@ -357,9 +358,22 @@ MonoBehaviour:
   followPosition: {x: 0, y: 0, z: 0}
   speedMultiplier: 1
   maxHealth: 100
-  maxMovementSpeed: 3
+  maxMovementSpeed: 5
   displayGizmos: 0
-  canMove: 1
+  _curHealth: 0
+--- !u!135 &1626558791
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890989801276879569}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0.7, z: 0.15}
 --- !u!1 &1890989801431395119
 GameObject:
   m_ObjectHideFlags: 0

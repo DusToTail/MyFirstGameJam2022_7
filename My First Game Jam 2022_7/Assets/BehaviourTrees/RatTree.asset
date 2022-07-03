@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8890087249268234518
+--- !u!114 &-8928716017941162400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,18 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92548464ee88c0408aa7a341caf7195, type: 3}
-  m_Name: IfTargetIsInAttackZoneNode
+  m_Script: {fileID: 11500000, guid: f52926e99d932f24490d7c163b510209, type: 3}
+  m_Name: IdleNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 9b6973ebc98405f46aa7c8412cec4aab
-  position: {x: 477.33334, y: 272.66666}
+  guid: d7e81c3744573cb4f94c0382787a3e60
+  position: {x: 286.75003, y: 89.99999}
   tree: {fileID: 0}
-  children:
-  - {fileID: 1226785306195991767}
-  - {fileID: -5395664238939786425}
-  target: {fileID: 0}
 --- !u!114 &-7906066425112572321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,10 +35,31 @@ MonoBehaviour:
   position: {x: 109.000015, y: 90}
   tree: {fileID: 0}
   children:
-  - {fileID: -7417019634541316646}
-  - {fileID: -2636763187849559122}
+  - {fileID: -8928716017941162400}
+  - {fileID: -1055129658701763617}
   controller: {fileID: 0}
---- !u!114 &-7417019634541316646
+--- !u!114 &-4874581195561776843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92548464ee88c0408aa7a341caf7195, type: 3}
+  m_Name: IfTargetIsInAttackZoneNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 17419db551d1bec40b112f0bc6bb4a89
+  position: {x: 465.33337, y: 276.00006}
+  tree: {fileID: 0}
+  children:
+  - {fileID: 8376360622324094651}
+  - {fileID: -762330052156475055}
+  target: {fileID: 0}
+--- !u!114 &-4008672612475340456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,15 +69,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f52926e99d932f24490d7c163b510209, type: 3}
-  m_Name: WaitNode
+  m_Name: IdleNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 88a4599e9c1e5d74db7d4911ada17896
-  position: {x: 294.3333, y: 90}
+  guid: 23347917566a8d84ea97e0bcfb828aec
+  position: {x: 900.6667, y: 354.66666}
   tree: {fileID: 0}
-  duration: 0.1
---- !u!114 &-5395664238939786425
+--- !u!114 &-1060048911586386168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,15 +85,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5b48cd2b3372748b62e230ba6c7bd0, type: 3}
-  m_Name: AttackNode
+  m_Script: {fileID: 11500000, guid: f52926e99d932f24490d7c163b510209, type: 3}
+  m_Name: IdleNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 43fa104bb20808d42b0e657ea94e4fcb
-  position: {x: 707.3333, y: 351.33334}
+  guid: 1635a07fd7abd7245ae1a0aad6f74389
+  position: {x: 465.24405, y: 182.6667}
   tree: {fileID: 0}
---- !u!114 &-2636763187849559122
+--- !u!114 &-1055129658701763617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,12 +107,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 5eda36d45a9ef92488f71cb604c98690
-  position: {x: 294.3333, y: 194}
+  guid: e2f970f1bb3294b44b04b5aad39c0cfd
+  position: {x: 286.66672, y: 182.85}
   tree: {fileID: 0}
   children:
-  - {fileID: 6131923652615948005}
-  - {fileID: -8890087249268234518}
+  - {fileID: -1060048911586386168}
+  - {fileID: -4874581195561776843}
+  target: {fileID: 0}
+--- !u!114 &-762330052156475055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c489cc711370aef48ade8bbc5e9384b9, type: 3}
+  m_Name: IfCanAttackNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 068be8453a8254246a0e657ac1d43434
+  position: {x: 692.0001, y: 354.6667}
+  tree: {fileID: 0}
+  children:
+  - {fileID: -4008672612475340456}
   target: {fileID: 0}
 --- !u!114 &-142738837570978727
 MonoBehaviour:
@@ -133,14 +169,16 @@ MonoBehaviour:
   nodes:
   - {fileID: -142738837570978727}
   - {fileID: -7906066425112572321}
-  - {fileID: -7417019634541316646}
-  - {fileID: -2636763187849559122}
-  - {fileID: 6131923652615948005}
-  - {fileID: -8890087249268234518}
-  - {fileID: 1226785306195991767}
-  - {fileID: -5395664238939786425}
+  - {fileID: -8928716017941162400}
+  - {fileID: -1055129658701763617}
+  - {fileID: -1060048911586386168}
+  - {fileID: -4874581195561776843}
+  - {fileID: 8376360622324094651}
+  - {fileID: -762330052156475055}
+  - {fileID: -4008672612475340456}
+  - {fileID: 8698407855585940757}
   AI: {fileID: 0}
---- !u!114 &1226785306195991767
+--- !u!114 &8376360622324094651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,10 +192,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 78d014636ae8bf645b3995f68f13085e
-  position: {x: 707.0085, y: 272.6667}
+  guid: e1b97f7364d190943b7719aef162a8fe
+  position: {x: 691.9068, y: 275.99997}
   tree: {fileID: 0}
---- !u!114 &6131923652615948005
+--- !u!114 &8698407855585940757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,12 +204,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52926e99d932f24490d7c163b510209, type: 3}
-  m_Name: WaitNode
+  m_Script: {fileID: 11500000, guid: dc5b48cd2b3372748b62e230ba6c7bd0, type: 3}
+  m_Name: AttackNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: a5a281c76b175994da7e056bd2964de4
-  position: {x: 477, y: 194}
+  guid: 32e6701809c17564eb9d4e09a783e76f
+  position: {x: 0, y: 0}
   tree: {fileID: 0}
-  duration: 0.1

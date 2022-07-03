@@ -14,17 +14,8 @@ public class AttackNode : ActionNode
 
     protected override State OnUpdate()
     {
-        if (tree.AI.Target == null)
-        {
-            Debug.Log("Node: Target is not detected", tree.AI);
-            return State.Failure;
-        }
-        else
-        {
-            tree.AI.Character.followPosition = tree.AI.Target.transform.position;
-            Debug.Log($"Node: Moving towards {tree.AI.Character.followPosition}", tree.AI);
-            tree.AI.Character.Move();
-            return State.Running;
-        }
+        //Debug.Log($"Node: Attacking ", tree.AI);
+        tree.AI.GetComponent<IAttack>().Attack();
+        return State.Running;
     }
 }

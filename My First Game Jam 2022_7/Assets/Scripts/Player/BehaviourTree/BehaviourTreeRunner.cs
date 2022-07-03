@@ -18,7 +18,6 @@ public class BehaviourTreeRunner : MonoBehaviour
 
     public void RunTree()
     {
-        Debug.Log($"Start run tree", this);
         InitializeClone();
         clone.Update();
         DestroyClone();

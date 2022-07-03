@@ -33,17 +33,18 @@ public class RabbitBehaviour : CharacterBehaviour
         _animator.SetFloat("MovementSpeed", _navMeshAgent.speed);
         _animator.SetFloat("AnimationSpeed", speedMultiplier);
     }
-    public override void Attack(float positiveAmount) { }
     public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));
     public override void Heal(float positiveAmount) => StartCoroutine(HealCoroutine(positiveAmount));
     private IEnumerator TakeDamageCoroutine(float positiveAmount)
     {
+        Debug.Log($"{gameObject.name} takes {positiveAmount} damage", this);
         // Trigger any animation / sound effect / event
         MinusHealth(positiveAmount);
         yield return null;
     }
     private IEnumerator HealCoroutine(float positiveAmount)
     {
+        Debug.Log($"{gameObject.name} heals {positiveAmount}", this);
         // Trigger any animation / sound effect / event
         PlusHealth(positiveAmount);
         yield return null;

@@ -20,13 +20,13 @@ public class IfPlayerExistsNode : CompositeNode
         if (controller == null)
         {
             // There is no player
-            Debug.Log("Node: There is no player", tree.AI);
+            //Debug.Log("Node: There is no player", tree.AI);
             return children[0].Update();
         }
         else
         {
             // There is player
-            Debug.Log("Node: There is player", tree.AI);
+            //Debug.Log("Node: There is player", tree.AI);
             return children[1].Update();
         }
     }
