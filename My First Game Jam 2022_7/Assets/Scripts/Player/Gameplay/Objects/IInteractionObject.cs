@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IInteractionObject
 {
-    public void OnInteracted();
+    public void OnInteracted(InteractionActorBehaviour byActor);
     public void OnNearby();
     public void OnDistant();
 }

@@ -14,7 +14,7 @@ public class AttractedBySignalBehaviour : MonoBehaviour, IReceiveSignal
 
     public void Execute(Vector3 fromWorldPosition)
     {
-        Debug.Log($"{gameObject.name} is attracted by something from {fromWorldPosition}", this);
+        //Debug.Log($"{gameObject.name} is attracted by something from {fromWorldPosition}", this);
         _character.GetComponentInChildren<DetectCharacterInFOVBehaviour>()?.TriggerColliderRadius();
     }
 }

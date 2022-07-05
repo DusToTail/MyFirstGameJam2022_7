@@ -9,6 +9,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
 {
     public Vector3 followPosition;
     public float speedMultiplier = 1;
+    public float CurHealthPercentage { get { return _curHealth / maxHealth; } }
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float maxMovementSpeed;
     [SerializeField] protected bool displayGizmos;

@@ -10,7 +10,7 @@ public class InteractionActorBehaviour : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(atGroundPosition, Vector3.one / 2, Quaternion.identity, LayerMask.GetMask(Utilities.objectLayer));
         foreach (var col in colliders)
         {
-            col.gameObject.GetComponentInChildren<IInteractionObject>()?.OnInteracted();
+            col.gameObject.GetComponentInChildren<IInteractionObject>()?.OnInteracted(this);
         }
     }
 }

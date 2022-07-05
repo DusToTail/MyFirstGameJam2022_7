@@ -5,19 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public abstract class InteractionObjectBehaviour : MonoBehaviour, IInteractionObject
 {
-    public abstract void OnInteracted();
+    public abstract void OnInteracted(InteractionActorBehaviour byActor);
     public abstract void OnDistant();
     public abstract void OnNearby();
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(Utilities.playerTag))
-            OnNearby();
+        {
+            if(other.GetComponent<InteractionActorBehaviour>() != null)
+                OnNearby();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(Utilities.playerTag))
-            OnDistant();
+        {
+            if (other.GetComponent<InteractionActorBehaviour>() != null)
+                OnDistant();
+        }
     }
 }

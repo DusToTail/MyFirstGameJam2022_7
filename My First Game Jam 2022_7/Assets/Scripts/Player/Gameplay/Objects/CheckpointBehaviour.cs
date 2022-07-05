@@ -9,9 +9,9 @@ public class CheckpointBehaviour : InteractionObjectBehaviour
     {
     }
 
-    public override void OnInteracted()
+    public override void OnInteracted(InteractionActorBehaviour byActor)
     {
-        Debug.Log($"{transform.parent.gameObject.name} is interacted", transform.parent);
+        //Debug.Log($"{transform.parent.gameObject.name} is interacted", transform.parent);
     }
 
     public override void OnNearby()
