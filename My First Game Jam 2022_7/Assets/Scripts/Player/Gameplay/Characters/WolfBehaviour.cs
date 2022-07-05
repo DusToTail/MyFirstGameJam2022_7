@@ -53,7 +53,7 @@ public class WolfBehaviour : CharacterBehaviour, IAttack
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag(Utilities.playerTag))
-                collider.transform.GetComponent<CharacterBehaviour>().TakeDamage(attackDamage);
+                collider.transform.GetComponent<CharacterBehaviour>()?.TakeDamage(attackDamage);
         }
         ResetCurrentAttackCooldown();
     }

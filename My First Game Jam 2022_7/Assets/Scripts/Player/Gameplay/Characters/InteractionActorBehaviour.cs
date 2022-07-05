@@ -5,9 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class InteractionActorBehaviour : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    public void InteractObject(Vector3 atGroundPosition)
     {
-        IInteractionObject interacted = other.gameObject.GetComponent<IInteractionObject>();
-        interacted?.OnInteracted();
+        Collider[] colliders = Physics.OverlapBox(atGroundPosition, Vector3.one / 2, Quaternion.identity, LayerMask.GetMask(Utilities.objectLayer));
+        foreach (var col in colliders)
+        {
+            col.gameObject.GetComponentInChildren<IInteractionObject>()?.OnInteracted();
+        }
     }
 }

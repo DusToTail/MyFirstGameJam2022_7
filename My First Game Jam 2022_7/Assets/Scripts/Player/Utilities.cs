@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Utilities
 {
     public static readonly string groundLayer = "Ground";
+    public static readonly string mousePlaneLayer = "Mouse Plane";
     public static readonly string characterLayer = "Character";
     public static readonly string objectLayer = "Object";
 

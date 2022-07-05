@@ -11,6 +11,7 @@ public class CheckpointBehaviour : InteractionObjectBehaviour
 
     public override void OnInteracted()
     {
+        Debug.Log($"{transform.parent.gameObject.name} is interacted", transform.parent);
     }
 
     public override void OnNearby()

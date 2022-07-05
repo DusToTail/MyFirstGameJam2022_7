@@ -12,18 +12,25 @@ public class PlayerController : MonoBehaviour
     private Vector3 _cursorDirection;
     private float _cursorDistance;
     private CharacterBehaviour _character;
+    private InteractionActorBehaviour _interactionActor;
 
     private void Awake()
     {
         _character = GetComponent<CharacterBehaviour>();
+        _interactionActor = GetComponentInChildren<InteractionActorBehaviour>();
     }
     private void Update()
     {
-        _cursorGroundPosition = Utilities.GetCursorPositionOnLayers(Utilities.groundLayer);
+        _cursorGroundPosition = Utilities.GetCursorPositionOnLayers(Utilities.mousePlaneLayer);
         _cursorDirection = _cursorGroundPosition - transform.position;
         _cursorDirection -= new Vector3(0, _cursorDirection.y, 0);
         _cursorDistance = _cursorDirection.magnitude;
         _cursorDirection.Normalize();
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            _interactionActor?.InteractObject(_cursorGroundPosition);
+        }
 
         float normalized = Mathf.Clamp((_cursorDistance - cursorMinRange) / (cursorMaxRange - cursorMinRange), 0, 1);
         Vector3 appliedGroundPosition = transform.position + _cursorDirection * cursorMaxRange * normalized;
@@ -38,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         _character.speedMultiplier = scale;
     }
+    
 
     private void OnDrawGizmos()
     {

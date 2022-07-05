@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class RabbitBehaviour : CharacterBehaviour
 {
+    public GameObject bloodVFX;
+    public GameObject healVFX;
+
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -25,7 +28,6 @@ public class RabbitBehaviour : CharacterBehaviour
     {
         float speedByHealth = maxMovementSpeed * Mathf.Clamp(_curHealth / maxHealth, 0.1f, 1f);
         UpdateNavMeshAgent(speedByHealth);
-        
     }
     public override void Idle()
     {
@@ -44,6 +46,7 @@ public class RabbitBehaviour : CharacterBehaviour
         Debug.Log($"{gameObject.name} takes {positiveAmount} damage", this);
         // Trigger any animation / sound effect / event
         MinusHealth(positiveAmount);
+        Instantiate(bloodVFX, transform.position, Quaternion.identity);
         yield return null;
     }
     private IEnumerator HealCoroutine(float positiveAmount)
@@ -51,6 +54,7 @@ public class RabbitBehaviour : CharacterBehaviour
         Debug.Log($"{gameObject.name} heals {positiveAmount}", this);
         // Trigger any animation / sound effect / event
         PlusHealth(positiveAmount);
+        Instantiate(healVFX, transform.position, Quaternion.identity);
         yield return null;
     }
 }

@@ -9,7 +9,7 @@ Shader "Custom/FogProjection"
     }
         SubShader
         {
-            Tags { "Queue" = "Transparent+100" } // to cover other transparent non-z-write things
+            Tags { "Queue" = "Transparent-100" } // to cover other transparent non-z-write things
 
             Pass
             {

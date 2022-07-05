@@ -56,7 +56,7 @@ public class RatBehaviour : CharacterBehaviour, IAttack
         foreach(Collider collider in colliders)
         {
             if (collider.CompareTag(Utilities.playerTag))
-                collider.transform.GetComponent<CharacterBehaviour>().TakeDamage(positiveAmount);
+                collider.transform.GetComponent<CharacterBehaviour>()?.TakeDamage(positiveAmount);
         }
         ResetCurrentAttackCooldown();
         yield return null;
