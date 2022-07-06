@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 public class CharacterAnimationEventsContainer : MonoBehaviour
 {
-    public GameObject walkEffect;
+    public GameObject shockwaveEffect;
 
-    public void SpawnWalkEffect()
+    public void SpawnShockWaveEffect()
     {
-        var effect = Instantiate(walkEffect, transform.position, Quaternion.identity);
+        var effect = Instantiate(shockwaveEffect, transform.position, Quaternion.identity);
         var particleSystem = effect.GetComponent<ParticleSystem>();
         ParticleSystem.MainModule main = particleSystem.main;
         main.startSize = GetComponentInParent<CharacterBehaviour>().speedMultiplier * main.startSize.constant;

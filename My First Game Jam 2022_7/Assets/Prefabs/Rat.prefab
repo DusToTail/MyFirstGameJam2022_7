@@ -1009,7 +1009,6 @@ GameObject:
   - component: {fileID: 2021625523451070876}
   - component: {fileID: 2021625523451070878}
   - component: {fileID: 2021625523451070877}
-  - component: {fileID: 3370843987054052535}
   m_Layer: 0
   m_Name: Model
   m_TagString: Model
@@ -1066,19 +1065,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3370843987054052535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021625523451070872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13db4ee6418a5544591eb9249523fc25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkEffect: {fileID: 5645957474662245939, guid: e43aa4c8d17233547b21fd21879a0af3, type: 3}
 --- !u!1 &2021625523590391762
 GameObject:
   m_ObjectHideFlags: 0
