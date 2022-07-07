@@ -30,7 +30,8 @@ public class MouseBehaviour : CharacterBehaviour
         
         UpdateNavMeshAgent(speedByHealth);
 
-        if (speedMultiplier > 0.01f) { _animator.SetBool("IsMoving", true); _animator.SetFloat("Velocity", speedMultiplier); }
+        float actualNormalizedSpeed = _navMeshAgent.speed / maxMovementSpeed;
+        if (actualNormalizedSpeed > 0.01f) { _animator.SetBool("IsMoving", true); _animator.SetFloat("Velocity", actualNormalizedSpeed); }
         else { _animator.SetBool("IsMoving", false); }
     }
     public override void Idle()

@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     private float _cursorDistance;
     private CharacterBehaviour _character;
     private InteractionActorBehaviour _interactionActor;
+    private NavMeshAgent _navMeshAgent;
+    private Transform _model;
 
     private void Awake()
     {
         _character = GetComponent<CharacterBehaviour>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         _interactionActor = GetComponentInChildren<InteractionActorBehaviour>();
+        _model = transform.Find("Model");
     }
     private void Update()
     {
@@ -45,7 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         _character.speedMultiplier = scale;
     }
-    
 
     private void OnDrawGizmos()
     {
