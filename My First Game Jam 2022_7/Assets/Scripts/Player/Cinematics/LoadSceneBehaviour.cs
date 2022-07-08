@@ -16,13 +16,13 @@ public class LoadSceneBehaviour : MonoBehaviour
 
     public void LoadScene()
     {
-        if (sceneIndex > SceneManager.sceneCount) { return; }
+        if (sceneIndex > SceneManager.sceneCountInBuildSettings) { return; }
         SceneManager.LoadScene(sceneIndex);
     }
 
     public static void LoadScene(int sceneIndex)
     {
-        if(sceneIndex > SceneManager.sceneCount) { return; }
+        if(sceneIndex > SceneManager.sceneCountInBuildSettings) { return; }
         SceneManager.LoadScene(sceneIndex);
     }
 
