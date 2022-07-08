@@ -16,6 +16,16 @@ public abstract class CharacterBehaviour : MonoBehaviour
     [SerializeField] protected float _curHealth;
     protected NavMeshAgent _navMeshAgent;
     protected Animator _animator;
+
+    private void OnEnable()
+    {
+        GoalReachedBehaviour.OnGoalReached += StopBehaviour;
+    }
+    private void OnDisable()
+    {
+        GoalReachedBehaviour.OnGoalReached -= StopBehaviour;
+    }
+
     public abstract void Idle();
     public abstract void Move();
     public abstract void TakeDamage(float positiveAmount);
@@ -46,6 +56,16 @@ public abstract class CharacterBehaviour : MonoBehaviour
         if (positiveAmount < 0) { return; }
         _curHealth += positiveAmount;
         if (_curHealth > maxHealth) { _curHealth = maxHealth; }
+    }
+    private void StopBehaviour()
+    {
+        _navMeshAgent.speed = 0;
+        _navMeshAgent.isStopped = true;
+        if(GetComponent<PlayerController>() != null)
+            GetComponent<PlayerController>().enabled = false;
+        if (GetComponent<AIController>() != null)
+            GetComponent<AIController>().enabled = false;
+
     }
     private void OnDrawGizmos()
     {
