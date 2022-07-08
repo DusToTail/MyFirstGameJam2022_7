@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 470bfbda298566b45a56c972ccb9e12f
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
+    path: Assets/Scenes/Cave Gameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Ending Gameplay.unity
+    guid: f38924fd1ce11b8498768b63cce6cb6b
   m_configObjects: {}
