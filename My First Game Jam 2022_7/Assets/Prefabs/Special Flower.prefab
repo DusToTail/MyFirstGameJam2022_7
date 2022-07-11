@@ -5416,6 +5416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 20
+  sanityCost: 2
   isTriggered: 0
   popup: {fileID: 2528891646356808177}
 --- !u!1001 &5974324708989414624

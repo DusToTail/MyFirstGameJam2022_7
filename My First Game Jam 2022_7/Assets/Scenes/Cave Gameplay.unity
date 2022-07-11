@@ -2808,7 +2808,7 @@ GameObject:
   - component: {fileID: 1105450791}
   - component: {fileID: 1105450790}
   - component: {fileID: 1105450789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3962,7 +3962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1776763511
 Transform:
   m_ObjectHideFlags: 0
@@ -5435,7 +5435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
       propertyPath: m_Name
-      value: Rat
+      value: Dark Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 2021625522933977682, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
       propertyPath: m_RootOrder

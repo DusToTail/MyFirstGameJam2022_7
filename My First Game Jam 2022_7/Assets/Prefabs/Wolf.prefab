@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 304207479447513656}
   - component: {fileID: 5353394011077691041}
   - component: {fileID: 145892478072303023}
+  - component: {fileID: 8962971790583231497}
   - component: {fileID: 144809573235563501}
   m_Layer: 8
   m_Name: Wolf
@@ -530,6 +531,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AI: {fileID: 0}
+--- !u!114 &8962971790583231497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980456440526833145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d014a1cc8b235314f83eed160baa99cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 20
 --- !u!135 &144809573235563501
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1471,7 +1485,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &8272557717692265912
 MonoBehaviour:
@@ -1487,6 +1501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   detectMode: 0
-  maxRadius: 10
-  minRadius: 3
+  maxRadius: 15
+  minRadius: 5
   resetTime: 5

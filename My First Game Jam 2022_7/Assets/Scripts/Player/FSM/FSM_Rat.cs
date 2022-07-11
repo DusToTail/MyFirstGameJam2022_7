@@ -19,11 +19,11 @@ public class FSM_Rat : FiniteStateMachine
         states = new List<State>()
         {
             new S_Passive(this), // 0
-            new S_Idle<RatBehaviour>(this), // 1
+            new S_Idle<DarkMouseBehaviour>(this), // 1
             new S_Aggressive(this), // 2
-            new S_Chase<RatBehaviour>(this), // 3
-            new S_Attack<RatBehaviour>(this), // 4
-            new S_Idle<RatBehaviour>(this) // 5
+            new S_Chase<DarkMouseBehaviour>(this), // 3
+            new S_Attack<DarkMouseBehaviour>(this), // 4
+            new S_Idle<DarkMouseBehaviour>(this) // 5
         };
 
         // Initialize transititions
@@ -39,8 +39,8 @@ public class FSM_Rat : FiniteStateMachine
         var _52_True = new TN_True(this);
 
         var _IfVictimExists = new TN_VictimExists(this);
-        var _IfCanAttack = new TN_CanAttack<RatBehaviour>(this);
-        var _IfCanNotAttack = new TN_CanAttack<RatBehaviour>(this, true);
+        var _IfCanAttack = new TN_CanAttack<DarkMouseBehaviour>(this);
+        var _IfCanNotAttack = new TN_CanAttack<DarkMouseBehaviour>(this, true);
 
         _24_IfVictimExistsAndCanAttack.AddCondition(_IfVictimExists);
         _24_IfVictimExistsAndCanAttack.AddCondition(_IfCanAttack);

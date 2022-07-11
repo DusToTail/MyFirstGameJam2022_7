@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &808193856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808193857}
+  - component: {fileID: 4718152150459236681}
+  - component: {fileID: 2151290773212337506}
+  m_Layer: 0
+  m_Name: AutoSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808193857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808193856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890989801276879570}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4718152150459236681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808193856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498a7c5090befce4ebeaf546b7a2c24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSanity: 10
+  highThreshold: 7
+  mediumThreshold: 4
+  lowThreshold: 0
+  level: 1
+--- !u!114 &2151290773212337506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808193856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e8aaf57bf4de04781ed1696611045f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowPrefab:
+  - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
+  mediumPrefab:
+  - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
+  highPrefab:
+  - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
+  spawnsPerTime: 2
+  spawnIntervalInSeconds: 10
+  maxRadius: 20
+  minRadius: 10
+  level: 0
+  displayGizmos: 1
 --- !u!1 &1890989801276879569
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +89,7 @@ GameObject:
   - component: {fileID: 1890989801276879574}
   - component: {fileID: 1626558791}
   m_Layer: 8
-  m_Name: Rabbit
+  m_Name: Fluff Mouse
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,6 +111,7 @@ Transform:
   - {fileID: 1890989801861788444}
   - {fileID: 1890989801941700322}
   - {fileID: 1999347868650957600}
+  - {fileID: 808193857}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

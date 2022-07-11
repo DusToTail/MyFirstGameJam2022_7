@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RatBehaviour : CharacterBehaviour, IAttack
+public class DarkMouseBehaviour : CharacterBehaviour, IAttack
 {
     public bool CanAttack { get { return _currentAttackCooldown <= 0; } }
 
@@ -30,8 +30,10 @@ public class RatBehaviour : CharacterBehaviour, IAttack
 
     public override void Move()
     {
-        float speedByHealth = maxMovementSpeed * Mathf.Clamp(_curHealth / maxHealth, 0.1f, 1f);
-        UpdateNavMeshAgent(speedByHealth);
+        UpdateNavMeshAgent(maxMovementSpeed);
+        float actualNormalizedSpeed = _navMeshAgent.speed / maxMovementSpeed;
+        if (actualNormalizedSpeed > 0.01f) { _animator.SetBool("IsMoving", true); _animator.SetFloat("Velocity", actualNormalizedSpeed); }
+        else { _animator.SetBool("IsMoving", false); }
     }
     public override void Idle()
     {
@@ -40,8 +42,6 @@ public class RatBehaviour : CharacterBehaviour, IAttack
     public override void UpdateNavMeshAgent(float movementSpeed)
     {
         base.UpdateNavMeshAgent(movementSpeed);
-        _animator.SetFloat("MovementSpeed", _navMeshAgent.speed);
-        _animator.SetFloat("AnimationSpeed", speedMultiplier);
     }
     public void Attack() => StartCoroutine(AttackCoroutine(attackDamage));
     public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));

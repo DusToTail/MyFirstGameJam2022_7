@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealBehaviour : InteractionObjectBehaviour
 {
     [SerializeField] private float healAmount;
+    [SerializeField] private int sanityCost;
     [SerializeField] private bool isTriggered;
     [SerializeField] private GameObject popup;
 
@@ -24,6 +25,7 @@ public class HealBehaviour : InteractionObjectBehaviour
             isTriggered = true;
         //Debug.Log($"{transform.parent.gameObject.name} is interacted", transform.parent);
         byActor.gameObject.GetComponentInParent<CharacterBehaviour>()?.Heal(healAmount);
+        byActor.gameObject.transform.parent.GetComponentInChildren<SanityController>()?.MinusSanity(sanityCost);
         popup?.SetActive(false);
     }
 
