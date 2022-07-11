@@ -17,4 +17,12 @@ public class CharacterAnimationEventsContainer : MonoBehaviour
         particleSystem.Play();
         effect.GetComponent<SendSignalNearbyBehaviour>().Pulse();
     }
+    public void BasicAttack()
+    {
+        transform.GetComponentInParent<IAttack>()?.BasicAttack();
+    }
+    public void SpecialAttack()
+    {
+        transform.GetComponentInParent<IAttack>()?.SpecialAttack();
+    }
 }

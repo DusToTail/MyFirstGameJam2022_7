@@ -43,24 +43,26 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack
     {
         base.UpdateNavMeshAgent(movementSpeed);
     }
-    public void Attack() => StartCoroutine(AttackCoroutine(attackDamage));
+    public void Attack()
+    {
+        _animator.SetTrigger("BasicAttack");
+    }
     public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));
     public override void Heal(float positiveAmount) => StartCoroutine(HealCoroutine(positiveAmount));
-    private IEnumerator AttackCoroutine(float positiveAmount)
+    public void BasicAttack()
     {
-        Debug.Log($"{gameObject.name} attacks for {positiveAmount} damage", this);
+        Debug.Log($"{gameObject.name} attacks for {attackDamage} damage", this);
         // Trigger any animation / sound effect / event
-
         Vector3 center = attackCollider.transform.position + attackCollider.center;
         Collider[] colliders = Physics.OverlapBox(center, attackCollider.size / 2, attackCollider.transform.rotation, LayerMask.GetMask(Utilities.characterLayer));
         foreach(Collider collider in colliders)
         {
             if (collider.CompareTag(Utilities.playerTag))
-                collider.transform.GetComponent<CharacterBehaviour>()?.TakeDamage(positiveAmount);
+                collider.transform.GetComponent<CharacterBehaviour>()?.TakeDamage(attackDamage);
         }
         ResetCurrentAttackCooldown();
-        yield return null;
     }
+    public void SpecialAttack() { }
     private IEnumerator TakeDamageCoroutine(float positiveAmount)
     {
         Debug.Log($"{gameObject.name} takes {positiveAmount} damage", this);

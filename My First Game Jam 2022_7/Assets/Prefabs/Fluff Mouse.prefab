@@ -66,14 +66,17 @@ MonoBehaviour:
   - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
   mediumPrefab:
   - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
+  - {fileID: 1511539761039197996, guid: 48ade1b72050ac64da16b6a564e015d9, type: 3}
   highPrefab:
   - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
+  - {fileID: 1511539761039197996, guid: 48ade1b72050ac64da16b6a564e015d9, type: 3}
+  - {fileID: 7980456440526833145, guid: 9ee3544c73a65f04a93c3e9ad7b76787, type: 3}
   spawnsPerTime: 2
   spawnIntervalInSeconds: 10
   maxRadius: 20
   minRadius: 10
   level: 0
-  displayGizmos: 1
+  displayGizmos: 0
 --- !u!1 &1890989801276879569
 GameObject:
   m_ObjectHideFlags: 0
