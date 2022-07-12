@@ -68,30 +68,14 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     RaycastHit hit;
                     Physics.Raycast(ray, out hit, 10, LayerMask.GetMask(Utilities.groundLayer));
                     Vector3 ground = hit.point;
-                    Debug.DrawLine(ground, ground + Vector3.up * 100, Color.yellow);
-                    float y = ground.y + size.y / 2;
-                    int iteration = 0;
-                    while(iteration < 10)
+                    Vector3 center = ground + Vector3.up * size.y / 2;
+                    LayerMask avoidMask = LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer);
+                    Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
+                    if(spawnPosition != Vector3.positiveInfinity)
                     {
-                        float randRadius = Random.Range(minRadius, maxRadius);
-                        Vector2 randPosition2D = Random.insideUnitCircle;
-                        float x = ground.x + randPosition2D.x * randRadius;
-                        float z = ground.z + randPosition2D.y * randRadius;
-                        Vector3 spawnPosition = new Vector3(x, y, z);
-                        if (Physics.CheckBox(spawnPosition, size / 2, Quaternion.identity, LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
-                        if (!Physics.CheckBox(spawnPosition, size, Quaternion.identity, LayerMask.GetMask(Utilities.groundLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
-                        break;
                     }
-                    
                 }
             }
             else if(level == Level.Medium)
@@ -116,29 +100,13 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     RaycastHit hit;
                     Physics.Raycast(ray, out hit, 10, LayerMask.GetMask(Utilities.groundLayer));
                     Vector3 ground = hit.point;
-                    Debug.DrawLine(ground, ground + Vector3.up * 100, Color.yellow);
-
-                    float y = ground.y + size.y / 2;
-                    int iteration = 0;
-                    while (iteration < 10)
+                    Vector3 center = ground + Vector3.up * size.y / 2;
+                    LayerMask avoidMask = LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer);
+                    Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
+                    if (spawnPosition != Vector3.positiveInfinity)
                     {
-                        float randRadius = Random.Range(minRadius, maxRadius);
-                        Vector2 randPosition2D = Random.insideUnitCircle;
-                        float x = ground.x + randPosition2D.x * randRadius;
-                        float z = ground.z + randPosition2D.y * randRadius;
-                        Vector3 spawnPosition = new Vector3(x, y, z);
-                        if (Physics.CheckBox(spawnPosition, size / 2, Quaternion.identity, LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
-                        if (!Physics.CheckBox(spawnPosition, size, Quaternion.identity, LayerMask.GetMask(Utilities.groundLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
-                        break;
                     }
                 }
             }
@@ -169,29 +137,13 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     RaycastHit hit;
                     Physics.Raycast(ray, out hit, 10, LayerMask.GetMask(Utilities.groundLayer));
                     Vector3 ground = hit.point;
-                    Debug.DrawLine(ground, ground + Vector3.up * 100, Color.yellow);
-
-                    float y = ground.y + size.y / 2;
-                    int iteration = 0;
-                    while (iteration < 10)
+                    Vector3 center = ground + Vector3.up * size.y / 2;
+                    LayerMask avoidMask = LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer);
+                    Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
+                    if (spawnPosition != Vector3.positiveInfinity)
                     {
-                        float randRadius = Random.Range(minRadius, maxRadius);
-                        Vector2 randPosition2D = Random.insideUnitCircle;
-                        float x = ground.x + randPosition2D.x * randRadius;
-                        float z = ground.z + randPosition2D.y * randRadius;
-                        Vector3 spawnPosition = new Vector3(x, y, z);
-                        if (Physics.CheckBox(spawnPosition, size / 2, Quaternion.identity, LayerMask.GetMask(Utilities.objectLayer, Utilities.characterLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
-                        if (!Physics.CheckBox(spawnPosition, size, Quaternion.identity, LayerMask.GetMask(Utilities.groundLayer)))
-                        {
-                            iteration++;
-                            continue;
-                        }
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
-                        break;
                     }
                 }
             }

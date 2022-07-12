@@ -5,7 +5,8 @@ using UnityEngine;
 public interface IAttack
 {
     bool CanAttack { get; }
-    public void Attack();
-    public void BasicAttack();
-    public void SpecialAttack();
+    public void TriggerBasicAttack();
+    public void TriggerSpecialAttack();
+    public void BasicAttackEvent();
+    public void SpecialAttackEvent();
 }

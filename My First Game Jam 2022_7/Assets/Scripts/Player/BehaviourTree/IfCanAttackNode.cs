@@ -7,7 +7,7 @@ public class IfCanAttackNode : CompositeNode
     public CharacterBehaviour target;
     protected override void OnStart()
     {
-        target = tree.AI.Victim;
+        target = tree.AI.BasicAttackVictim;
     }
 
     protected override void OnStop()

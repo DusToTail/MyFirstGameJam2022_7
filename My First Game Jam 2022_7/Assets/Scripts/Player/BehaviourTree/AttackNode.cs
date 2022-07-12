@@ -15,7 +15,7 @@ public class AttackNode : ActionNode
     protected override State OnUpdate()
     {
         //Debug.Log($"Node: Attacking ", tree.AI);
-        tree.AI.GetComponent<IAttack>().Attack();
+        tree.AI.GetComponent<IAttack>().TriggerBasicAttack();
         return State.Running;
     }
 }

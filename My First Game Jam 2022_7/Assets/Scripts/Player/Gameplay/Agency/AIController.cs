@@ -6,25 +6,28 @@ public class AIController : MonoBehaviour
 {
     public CharacterBehaviour Character { get { return _character; } }
     public CharacterBehaviour Target { get { return _detectionFOV.target; } }
-    public CharacterBehaviour Victim { get { return _detectionAttack.target; } }
+    public CharacterBehaviour BasicAttackVictim { get { return DetectionBasicAttack?.target; } }
+    public CharacterBehaviour SpecialAttackVictim { get { return DetectionSpecialAttack?.target; } }
+    
+    public DetectCharacterInAttackZoneBehaviour DetectionBasicAttack { get;private set; }
+    public DetectCharacterInAttackZoneBehaviour DetectionSpecialAttack { get; private set; }
+
     private CharacterBehaviour _character;
-    //private BehaviourTreeRunner _treeRunner;
     private FiniteStateMachine _machine;
     private DetectCharacterInFOVBehaviour _detectionFOV;
-    private DetectCharacterInAttackZoneBehaviour _detectionAttack;
+
 
     private void Awake()
     {
         _character = GetComponent<CharacterBehaviour>();
-        //_treeRunner = GetComponent<BehaviourTreeRunner>();
         _machine = GetComponent<FiniteStateMachine>();
         _detectionFOV = GetComponentInChildren<DetectCharacterInFOVBehaviour>();
-        _detectionAttack = GetComponentInChildren<DetectCharacterInAttackZoneBehaviour>();
+        DetectionBasicAttack = transform.Find("BasicAttackDetection")?.GetComponent<DetectCharacterInAttackZoneBehaviour>();
+        DetectionSpecialAttack = transform.Find("SpecialAttackDetection")?.GetComponent<DetectCharacterInAttackZoneBehaviour>();
     }
 
     private void Update()
     {
-        //_treeRunner.RunTree();
         _machine.Run();
     }
 

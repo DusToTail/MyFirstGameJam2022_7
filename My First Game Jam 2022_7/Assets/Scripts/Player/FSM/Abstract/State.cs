@@ -15,7 +15,7 @@ public abstract class State
         OnStay();
         CheckTransitions();
     }
-    public void AddTransition(Transition trans) { transitions.Add(trans); }
+    public void AddTransition(params Transition[] trans) { foreach(var t in trans) transitions.Add(t); }
     public void CheckTransitions()
     {
         for(int i = 0; i < transitions.Count; i++)

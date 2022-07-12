@@ -19,10 +19,10 @@ public class CharacterAnimationEventsContainer : MonoBehaviour
     }
     public void BasicAttack()
     {
-        transform.GetComponentInParent<IAttack>()?.BasicAttack();
+        transform.GetComponentInParent<IAttack>()?.BasicAttackEvent();
     }
     public void SpecialAttack()
     {
-        transform.GetComponentInParent<IAttack>()?.SpecialAttack();
+        transform.GetComponentInParent<IAttack>()?.SpecialAttackEvent();
     }
 }

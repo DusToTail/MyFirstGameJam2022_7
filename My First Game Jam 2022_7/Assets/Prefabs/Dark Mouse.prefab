@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 220259308}
   - component: {fileID: 220259309}
   m_Layer: 0
-  m_Name: Attack Box
+  m_Name: BasicAttackDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &448127504
 MonoBehaviour:
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   detectMode: 0
-  maxRadius: 10
-  minRadius: 2
+  maxRadius: 3
+  minRadius: 1
   resetTime: 5
 --- !u!1 &2021625522415653787
 GameObject:
@@ -277,12 +277,13 @@ MonoBehaviour:
   followPosition: {x: 0, y: 0, z: 0}
   speedMultiplier: 1
   maxHealth: 1000
-  maxMovementSpeed: 3
+  maxMovementSpeed: 2
   displayGizmos: 0
   _curHealth: 0
   attackCollider: {fileID: 220259308}
-  attackDamage: 30
+  attackDamage: 10
   attackCooldown: 2
+  moveRandomCooldown: 10
 --- !u!114 &8572254982806388112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d014a1cc8b235314f83eed160baa99cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 10
+  lifespan: 20
 --- !u!135 &8127995535619214405
 SphereCollider:
   m_ObjectHideFlags: 0

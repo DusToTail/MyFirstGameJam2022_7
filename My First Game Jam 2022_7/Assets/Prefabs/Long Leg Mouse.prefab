@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
+  m_Size: {x: 8, y: 1, z: 8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7980456440008639542
 MonoBehaviour:
@@ -156,9 +156,6 @@ MonoBehaviour:
   maxMovementSpeed: 2
   displayGizmos: 0
   _curHealth: 0
-  attackCollider: {fileID: 0}
-  attackDamage: 60
-  attackCooldown: 3
 --- !u!114 &304207479447513656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,10 +216,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 6
+  m_Radius: 6
+  m_Height: 30
   m_Direction: 1
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 15, z: 0}
 --- !u!1 &8272557717692265894
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +264,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 15
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &8272557717692265912
 MonoBehaviour:
@@ -283,8 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   detectMode: 0
-  maxRadius: 15
-  minRadius: 5
+  maxRadius: 30
+  minRadius: 15
   resetTime: 5
 --- !u!1001 &2756323584703661292
 PrefabInstance:
@@ -375,7 +372,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 6
+  m_Radius: 6
+  m_Height: 30
   m_Direction: 1
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 15, z: 0}

@@ -16,5 +16,9 @@ public class TN_CompositeTransition : Transition
         return inverted ? false : true;
 
     }
-    public void AddCondition(Transition transition) { transitions.Add(transition); }
+    public void AddCondition(params Transition[] arr) 
+    { 
+        foreach(Transition transition in arr)
+            transitions.Add(transition); 
+    }
 }

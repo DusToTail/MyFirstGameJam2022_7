@@ -35,6 +35,31 @@ public static class Utilities
 
     }
 
+    public static Vector3 GetRandomPointOnGround(float minRadius, float maxRadius, Vector3 center, Vector3 size, LayerMask avoid)
+    {
+        int iteration = 0;
+        while (iteration < 10)
+        {
+            float randRadius = Random.Range(minRadius, maxRadius);
+            Vector2 randPosition2D = Random.insideUnitCircle;
+            float x = center.x + randPosition2D.x * randRadius;
+            float z = center.z + randPosition2D.y * randRadius;
+            Vector3 checkPosition = new Vector3(x, center.y, z);
+            if (Physics.CheckBox(checkPosition, size / 2, Quaternion.identity, avoid))
+            {
+                iteration++;
+                continue;
+            }
+            if (!Physics.CheckBox(checkPosition, size, Quaternion.identity, LayerMask.GetMask(Utilities.groundLayer)))
+            {
+                iteration++;
+                continue;
+            }
+            return checkPosition;
+        }
+        return Vector3.positiveInfinity;
+    }
+
     public static void ChangeLayersRecursively(GameObject target, string layerName)
     {
         target.layer = LayerMask.NameToLayer(layerName);

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class DarkMouseBehaviour : CharacterBehaviour, IAttack
+public class DarkMouseBehaviour : CharacterBehaviour, IAttack, IMoveRandom
 {
     public bool CanAttack { get { return _currentAttackCooldown <= 0; } }
+    public bool CanMoveRandom { get { return _currentMoveRandomCooldown <= 0; } }
 
     [SerializeField] private BoxCollider attackCollider;
     [SerializeField] private float attackDamage;
     [SerializeField] private float attackCooldown;
+    [SerializeField] private float moveRandomCooldown;
 
     private float _currentAttackCooldown;
+    private float _currentMoveRandomCooldown;
 
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack
     private void Update()
     {
         ReduceCurrentAttackCooldown();
+        ReduceCurrentMoveRandomCooldown();
     }
 
     public override void Move()
@@ -38,18 +42,22 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack
     public override void Idle()
     {
         UpdateNavMeshAgent(0);
+        _animator.SetBool("IsMoving", false);
     }
     public override void UpdateNavMeshAgent(float movementSpeed)
     {
         base.UpdateNavMeshAgent(movementSpeed);
     }
-    public void Attack()
+    public void TriggerBasicAttack()
     {
         _animator.SetTrigger("BasicAttack");
     }
+    public void TriggerSpecialAttack()
+    {
+    }
     public override void TakeDamage(float positiveAmount) => StartCoroutine(TakeDamageCoroutine(positiveAmount));
     public override void Heal(float positiveAmount) => StartCoroutine(HealCoroutine(positiveAmount));
-    public void BasicAttack()
+    public void BasicAttackEvent()
     {
         Debug.Log($"{gameObject.name} attacks for {attackDamage} damage", this);
         // Trigger any animation / sound effect / event
@@ -62,7 +70,7 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack
         }
         ResetCurrentAttackCooldown();
     }
-    public void SpecialAttack() { }
+    public void SpecialAttackEvent() { }
     private IEnumerator TakeDamageCoroutine(float positiveAmount)
     {
         Debug.Log($"{gameObject.name} takes {positiveAmount} damage", this);
@@ -85,6 +93,15 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack
     private void ResetCurrentAttackCooldown()
     {
         _currentAttackCooldown = attackCooldown;
+    }
+    public void ReduceCurrentMoveRandomCooldown()
+    {
+        if (_currentMoveRandomCooldown < 0) { return; }
+        _currentMoveRandomCooldown -= Time.deltaTime;
+    }
+    public void ResetCurrentMoveRandomCooldown()
+    {
+        _currentMoveRandomCooldown = attackCooldown;
     }
 
 }
