@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public static class Utilities
 {
@@ -8,6 +9,7 @@ public static class Utilities
     public static readonly string mousePlaneLayer = "Mouse Plane";
     public static readonly string characterLayer = "Character";
     public static readonly string objectLayer = "Object";
+    public static readonly string obstacleLayer = "Obstacles";
 
     public static readonly string interactionActorLayer = "Interaction Actor";
     public static readonly string interactionObjectLayer = "Interaction Object";
@@ -47,14 +49,27 @@ public static class Utilities
             Vector3 checkPosition = new Vector3(x, center.y, z);
             if (Physics.CheckBox(checkPosition, size / 2, Quaternion.identity, avoid))
             {
+                //#if UNITY_EDITOR
+                //Handles.color = Color.red;
+                //Handles.DrawWireCube(center, size);
+                //#endif
                 iteration++;
                 continue;
             }
-            if (!Physics.CheckBox(checkPosition, size, Quaternion.identity, LayerMask.GetMask(Utilities.groundLayer)))
+            Vector3 checkDirection = checkPosition - center;
+            if (Physics.BoxCast(center, size / 2, checkDirection.normalized, Quaternion.identity, checkDirection.magnitude, LayerMask.GetMask(Utilities.groundLayer)))
             {
+                //#if UNITY_EDITOR
+                //Handles.color = Color.red;
+                //Handles.DrawWireCube(center, size);
+                //#endif
                 iteration++;
                 continue;
             }
+            //#if UNITY_EDITOR
+            //Handles.color = Color.green;
+            //Handles.DrawWireCube(center, size);
+            //#endif
             return checkPosition;
         }
         return Vector3.positiveInfinity;

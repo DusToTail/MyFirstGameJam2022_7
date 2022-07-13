@@ -59,7 +59,7 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
         {
             if (level == Level.Low)
             {
-                for(int i = 0; i < spawnsPerTime; i++)
+                for(int i = 0; i < spawnsPerTime * (int)level; i++)
                 {
                     int rand = Random.Range(0, lowPrefab.Length);
                     var prefab = lowPrefab[rand];
@@ -73,14 +73,15 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
                     if(spawnPosition != Vector3.positiveInfinity)
                     {
-                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.green, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
                     }
+                    yield return new WaitForSeconds(0.5f / (int)level);
                 }
             }
             else if(level == Level.Medium)
             {
-                for (int i = 0; i < spawnsPerTime; i++)
+                for (int i = 0; i < spawnsPerTime * (int)level; i++)
                 {
                     int randLevel = Random.Range(0, 2);
                     int rand = 0;
@@ -105,14 +106,15 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
                     if (spawnPosition != Vector3.positiveInfinity)
                     {
-                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.green, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
                     }
+                    yield return new WaitForSeconds(0.5f / (int)level);
                 }
             }
             else if(level==Level.High)
             {
-                for (int i = 0; i < spawnsPerTime; i++)
+                for (int i = 0; i < spawnsPerTime * (int)level; i++)
                 {
                     int randLevel = Random.Range(0, 3);
                     int rand = 0;
@@ -142,9 +144,10 @@ public class AutoSpawnPrefabBehaviour : MonoBehaviour
                     Vector3 spawnPosition = Utilities.GetRandomPointOnGround(minRadius, maxRadius, center, size, avoidMask);
                     if (spawnPosition != Vector3.positiveInfinity)
                     {
-                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.yellow, 2);
+                        Debug.DrawLine(spawnPosition, spawnPosition + Vector3.up * 100, Color.green, 2);
                         Instantiate(prefab, spawnPosition, Quaternion.identity);
                     }
+                    yield return new WaitForSeconds(0.5f / (int)level);
                 }
             }
             yield return null;

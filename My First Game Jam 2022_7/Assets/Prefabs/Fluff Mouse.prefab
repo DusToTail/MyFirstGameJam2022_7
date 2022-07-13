@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498a7c5090befce4ebeaf546b7a2c24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSanity: 10
-  highThreshold: 7
-  mediumThreshold: 4
-  lowThreshold: 0
-  level: 1
+  maxSanity: 20
+  highThreshold: 15
+  mediumThreshold: 10
+  lowThreshold: 5
+  level: 2
 --- !u!114 &2151290773212337506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,13 +70,12 @@ MonoBehaviour:
   highPrefab:
   - {fileID: 2021625522933977681, guid: b0669063c6c15194faedda6eeb9289af, type: 3}
   - {fileID: 1511539761039197996, guid: 48ade1b72050ac64da16b6a564e015d9, type: 3}
-  - {fileID: 7980456440526833145, guid: 9ee3544c73a65f04a93c3e9ad7b76787, type: 3}
-  spawnsPerTime: 2
+  spawnsPerTime: 1
   spawnIntervalInSeconds: 10
-  maxRadius: 20
-  minRadius: 10
+  maxRadius: 30
+  minRadius: 15
   level: 0
-  displayGizmos: 0
+  displayGizmos: 1
 --- !u!1 &1890989801276879569
 GameObject:
   m_ObjectHideFlags: 0

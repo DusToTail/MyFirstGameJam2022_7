@@ -16,7 +16,7 @@ public class MouseBehaviour : CharacterBehaviour
     private void Start()
     {
         InitializeNavMeshAgent();
-        InitializeHealth();
+        InitializeHealth(0.2f);
     }
     private void Update()
     {

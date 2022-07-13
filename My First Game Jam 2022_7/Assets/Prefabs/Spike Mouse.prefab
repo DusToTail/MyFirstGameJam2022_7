@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   detectMode: 0
-  maxRadius: 3
+  maxRadius: 5
   minRadius: 1
   resetTime: 5
 --- !u!1 &1511539760621668070

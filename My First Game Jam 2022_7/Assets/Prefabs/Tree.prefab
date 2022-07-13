@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3630840083242405814}
   - component: {fileID: 8611525118319788756}
   - component: {fileID: 4608338977413130334}
+  - component: {fileID: 8641348372960207920}
   m_Layer: 0
   m_Name: Origin Leaves.LOD1
-  m_TagString: Untagged
+  m_TagString: Model
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8641348372960207920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078284906825589886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.275217, y: 17.296644, z: 17.440006}
+  m_Center: {x: 0.073951244, y: 17.340527, z: 0.25231457}
 --- !u!1 &1706020068688896344
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,9 +108,10 @@ GameObject:
   - component: {fileID: 1468365835011228571}
   - component: {fileID: 8977652219908415311}
   - component: {fileID: 5542676556897284210}
+  - component: {fileID: 3926399130292484522}
   m_Layer: 0
   m_Name: Origin Bark.LOD1
-  m_TagString: Untagged
+  m_TagString: Model
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -166,6 +181,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3926399130292484522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706020068688896344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.772573, y: 19.306042, z: 11.187544}
+  m_Center: {x: 0.43822217, y: 9.654001, z: 0.7198818}
 --- !u!1 &1823259735366266844
 GameObject:
   m_ObjectHideFlags: 0

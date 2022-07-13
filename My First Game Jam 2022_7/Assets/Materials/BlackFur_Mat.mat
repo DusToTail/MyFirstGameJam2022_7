@@ -127,6 +127,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 0.2
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 1
