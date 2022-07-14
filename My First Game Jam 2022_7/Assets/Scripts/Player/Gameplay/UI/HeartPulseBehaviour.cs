@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeartPulseBehaviour : MonoBehaviour
 {
+    [SerializeField] private bool runHeartBeatPulse;
     [SerializeField] private Transform moveTransform;
     [SerializeField] private Transform from;
     [SerializeField] private Transform to;
@@ -29,13 +30,14 @@ public class HeartPulseBehaviour : MonoBehaviour
     }
     private void Start()
     {
-            StartCoroutine(HeartBeatSoundCoroutine());
+        StartCoroutine(HeartBeatSoundCoroutine());
     }
     private void Update()
     {
         if(moveTransform == null) { return; }
         _healthMultiplier = 0;
         if (characterBehaviour != null) { _healthMultiplier = (2 - characterBehaviour.CurHealthPercentage); }
+        if (!runHeartBeatPulse) { return; }
         if (t > 1) 
         { 
             t = 0;

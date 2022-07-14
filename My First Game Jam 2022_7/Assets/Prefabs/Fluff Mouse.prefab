@@ -50,6 +50,7 @@ MonoBehaviour:
   mediumThreshold: 10
   lowThreshold: 5
   level: 2
+  volume: {fileID: 0}
 --- !u!114 &2151290773212337506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shockwaveEffect: {fileID: 5645957474662245939, guid: e43aa4c8d17233547b21fd21879a0af3, type: 3}
+  basicAttackSE: {fileID: 0}
+  specialAttackSE: {fileID: 0}
 --- !u!4 &2140507564323298471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0590386eaa4d4a147a75f63a525c5e47, type: 3}

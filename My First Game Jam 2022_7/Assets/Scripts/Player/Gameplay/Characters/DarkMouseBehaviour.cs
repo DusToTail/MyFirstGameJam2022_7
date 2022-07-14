@@ -15,7 +15,6 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack, IMoveRandom
 
     private float _currentAttackCooldown;
     private float _currentMoveRandomCooldown;
-
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -25,7 +24,9 @@ public class DarkMouseBehaviour : CharacterBehaviour, IAttack, IMoveRandom
     {
         InitializeNavMeshAgent();
         InitializeHealth();
+
     }
+    
     private void Update()
     {
         ReduceCurrentAttackCooldown();
